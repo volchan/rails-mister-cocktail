@@ -1,0 +1,24 @@
+<h1><%= @cocktail.name %></h1>
+
+<p>
+  <% @cocktail.ingredients.each do |ingredient| %>
+    <ul class="list-inline">
+      <li>
+        <%= ingredient.name %>
+        <ul>
+          <li>
+            <% ingredient.doses.each do |dose| %>
+              <%= dose.description %>
+              <%= link_to "Delete", dose_path(dose), method: :delete, class: "btn btn-xs btn-danger"  %>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  <% end %>
+</p>
+
+
+
+<%= render 'doses/form', ingredients: @ingredients %>
+<%= link_to "Delete", cocktail_path(@cocktail), method: :delete, class: "btn btn-xs btn-danger"  %>

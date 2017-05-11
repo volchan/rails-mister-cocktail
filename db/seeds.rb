@@ -22,7 +22,7 @@ puts 'THEY SEE ME SEEDING...'
 
 print 'cocktails'
 10.times do
-  Cocktail.create!(name: Faker::Ancient.titan)
+  Cocktail.create!(name: Faker::Company.name)
   print '.'
 end
 
@@ -33,9 +33,11 @@ print 'ingredients'
 end
 
 print 'doses'
-Cocktail.all.each do |cocktail|
-  Dose.create!(description: Faker::Lorem.paragraph, cocktail: cocktail, ingredient: Ingredient.all.sample)
-  print '.'
+2.times do
+  Cocktail.all.each do |cocktail|
+    Dose.create!(description: Faker::Lorem.paragraph, cocktail: cocktail, ingredient: Ingredient.all.sample)
+    print '.'
+  end
 end
 
 puts 'done !'

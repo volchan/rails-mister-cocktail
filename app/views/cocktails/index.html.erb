@@ -1,0 +1,6 @@
+<h1>Mister Cocktails</h1>
+
+<% @cocktails.each do |cocktail| %>
+  <h3><%= link_to cocktail.name, cocktail %></h3>
+  <hr>
+<% end %>
