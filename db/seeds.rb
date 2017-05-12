@@ -35,7 +35,7 @@ end
 print 'doses'
 2.times do
   Cocktail.all.each do |cocktail|
-    Dose.create!(description: Faker::Lorem.paragraph, cocktail: cocktail, ingredient: Ingredient.all.sample)
+    Dose.create!(description: Faker::LeagueOfLegends.quote, cocktail: cocktail, ingredient: Ingredient.all.sample)
     print '.'
   end
 end
