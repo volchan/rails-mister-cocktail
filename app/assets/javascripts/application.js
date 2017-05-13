@@ -14,4 +14,18 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require jquery-fileupload/basic
+//= require cloudinary/jquery.cloudinary
+//= require attachinary
 //= require_tree .
+
+$(document).ready(function() {
+  var observer = new MutationObserver(function(mutations) {
+    $('.attachinary_container ul').addClass("list-inline");
+    $('.attachinary_container a').html("").addClass("glyphicon glyphicon-remove");
+  });
+  var target = document.querySelector('.attachinary_container');
+  observer.observe(target, {
+    attributes: true
+  });
+})

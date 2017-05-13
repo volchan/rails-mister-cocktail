@@ -2,7 +2,7 @@ class CocktailsController < ApplicationController
 
   before_action :find_cocktail, only: [:show, :destroy]
   def index
-    @cocktails = Cocktail.all
+    @cocktails = Cocktail.all.order(name: :asc)
   end
 
   def show
@@ -37,7 +37,7 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
 
   def find_cocktail
