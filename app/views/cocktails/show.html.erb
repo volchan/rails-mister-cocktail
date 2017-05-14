@@ -5,8 +5,12 @@
         <div class="cocktail-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @cocktail.photo.path %>');"></div>
 
       <% else %>
-        <div class="cocktail-img missing-show-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'missing' %>');"></div>
-
+        <div class="cocktail-img missing-show-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'missing' %>');">
+          <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#photo-modal">
+            Add a photo
+          </button>
+          <%= render 'photo_modal' %>
+        </div>
       <% end %>
     </div>
   </div>
@@ -19,6 +23,12 @@
     <div class="col-sm-6 col-sm-offset-3">
       <h1>
         <%= @cocktail.name %> |
+        <span>
+          <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">
+            Edit
+          </button>
+        </span>
+        <%= render 'modal' %>
         <span><%= link_to "Delete", cocktail_path(@cocktail), method: :delete, class: "btn btn-xs btn-danger", data: { confirm: "Are you sure ?" }  %></span>
       </h1>
 

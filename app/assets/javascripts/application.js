@@ -20,6 +20,9 @@
 //= require_tree .
 
 $(document).ready(function() {
+  $('.attachinary_container ul').addClass("list-inline");
+  $('.attachinary_container a').html("").addClass("glyphicon glyphicon-remove");
+
   var observer = new MutationObserver(function(mutations) {
     $('.attachinary_container ul').addClass("list-inline");
     $('.attachinary_container a').html("").addClass("glyphicon glyphicon-remove");

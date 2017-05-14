@@ -4,4 +4,6 @@ class Cocktail < ApplicationRecord
   has_attachment :photo
 
   validates :name, presence: true, uniqueness: true
+
+  CATEGORIES = ['Alcoholic', 'Non Alcoholic']
 end
